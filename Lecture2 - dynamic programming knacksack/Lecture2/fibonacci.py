@@ -15,6 +15,6 @@ def fib(n, memo):
     return k
 
 
-for n in range(100):
+for n in range(1000):
     print(fib(n, memo))
 print(memo)
