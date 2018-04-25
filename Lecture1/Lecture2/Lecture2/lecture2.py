@@ -1,3 +1,6 @@
+import random
+
+
 class Food(object):
     def __init__(self, n, v, w):
         self.name = n
@@ -96,19 +99,6 @@ def testMaxVal(foods, maxUnits, printItems=True):
             print('   ', item)
 
 
-names = ['wine', 'beer', 'pizza', 'burger', 'fries',
-         'cola', 'apple', 'donut', 'cake']
-values = [89, 90, 95, 100, 90, 79, 50, 10]
-calories = [123, 154, 258, 354, 365, 150, 95, 195]
-foods = buildMenu(names, values, calories)
-
-testGreedys(foods, 750)
-print('')
-testMaxVal(foods, 750)
-
-import random
-
-
 def buildLargeMenu(numItems, maxVal, maxCost):
     items = []
     for i in range(numItems):
@@ -118,10 +108,10 @@ def buildLargeMenu(numItems, maxVal, maxCost):
     return items
 
 
-# for numItems in (5, 10, 15, 20, 25, 30, 35, 40, 45):
-#    print('Try a menu with', numItems, 'items')
-#    items = buildLargeMenu(numItems, 90, 250)
-#    testMaxVal(items, 750, False)  
+for numItems in (5, 10, 15, 20, 25, 30, 35, 40, 45):
+   print('Try a menu with', numItems, 'items')
+   items = buildLargeMenu(numItems, 90, 250)
+   testMaxVal(items, 750, False)
 
 def fib(n):
     if n == 0 or n == 1:
@@ -181,16 +171,17 @@ def fastMaxVal(toConsider, avail, memo={}):
     return result
 
 
-def testMaxVal(foods, maxUnits, algorithm, printItems=True):
-    print('Menu contains', len(foods), 'items')
-    print('Use search tree to allocate', maxUnits,
-          'calories')
-    val, taken = algorithm(foods, maxUnits)
-    if printItems:
-        print('Total value of items taken =', val)
-        for item in taken:
-            print('   ', item)
-
 # for numItems in (5, 10, 15, 20, 25, 30, 35, 40, 45, 50):
 #    items = buildLargeMenu(numItems, 90, 250)
 #    testMaxVal(items, 750, fastMaxVal, True)
+
+
+# names = ['wine', 'beer', 'pizza', 'burger', 'fries',
+#          'cola', 'apple', 'donut', 'cake']
+# values = [89, 90, 95, 100, 90, 79, 50, 10]
+# calories = [123, 154, 258, 354, 365, 150, 95, 195]
+# foods = buildMenu(names, values, calories)
+#
+# testGreedys(foods, 750)
+# print('')
+# testMaxVal(foods, 750)
