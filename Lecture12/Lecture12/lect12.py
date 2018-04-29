@@ -125,7 +125,7 @@ def testClustering(patients, numClusters, seed = 0, numTrials = 5):
     return posFracs
 
 patients = getData()
-for k in (2,):
+for k in (4,):
     print('\n     Test k-means (k = ' + str(k) + ')')
     posFracs = testClustering(patients, k, 2)
 
